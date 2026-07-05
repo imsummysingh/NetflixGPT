@@ -1,9 +1,11 @@
 import Header from "./Header";
 import { useState, useRef } from "react";
 import {checkValidData} from "../utils/validate";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login =() => {
 
@@ -12,6 +14,8 @@ const Login =() => {
 
     //navigate to take user from one page to another page
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
     
     //reference variable for the input fields
     const name = useRef(null);
@@ -30,8 +34,18 @@ const handleButtonClick = () => {
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
-                console.log(user);
-                navigate("/browse");
+
+                //update the user profile with the name
+                updateProfile(user, {
+                displayName: name.current.value, photoURL: "https://media.licdn.com/dms/image/v2/D4D03AQHywJwI_phKKQ/profile-displayphoto-shrink_100_100/B4DZU4MA3nGcAU-/0/1740404429276?e=1784764800&v=beta&t=5BaD7dNBoCpYODPI8cfETGT7PvYATJ7Z5E8apJgYeno"
+                }).then(() => {
+                    // dispatch action once profile is updated for display name and photourl
+                    const {uid, email, displayName, photoURL} = auth.currentUser;
+                    dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
+                    navigate("/browse");
+                }).catch((error) => {
+                    setErrorMessage(error.message);
+                });                
             })
             .catch((error) => {
                 const errorCode = error.code;
