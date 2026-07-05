@@ -18,21 +18,19 @@ const Login =() => {
     const email = useRef(null);
     const password = useRef(null);
 
-    const handleButtonClick = () => {
+const handleButtonClick = () => {
         //validate form data
         const message = checkValidData(email.current.value, password.current.value);
         setErrorMessage(message);
         if(message) return;
-
         //Sign in/ Sign up logic
         if(!isSignInForm){
             //sign up logic
-
             createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => {
-
                 // Signed up 
                 const user = userCredential.user;
+                console.log(user);
                 navigate("/browse");
             })
             .catch((error) => {
@@ -40,13 +38,10 @@ const Login =() => {
                 const errorMessage = error.message;
                 setErrorMessage(errorCode+ " " +errorMessage);
             });
-
         }else{
             //sign in logic
-
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => {
-
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user);
@@ -57,9 +52,9 @@ const Login =() => {
                 const errorMessage = error.message;
                 setErrorMessage(errorCode+ " " +errorMessage);
             });
-
         }     
     };
+
 
     const toggleSignInForm = () => {
         setIsSignInForm(!isSignInForm);
@@ -72,7 +67,7 @@ const Login =() => {
             <img src="https://assets.nflxext.com/ffe/siteui/vlv3/2f42605e-e786-4a06-8612-ebc67c55ba6c/web/IN-en-20260629-TRIFECTA-perspective_76b17e8c-cff9-4c65-9938-08ca5029be6b_large.jpg"
             alt="Netflix Background"></img>
         </div>
-        <form onSubmit={(e)=>e.preventDefault} className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
+        <form onSubmit={(e)=>e.preventDefault()} className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
             <h1 className="font-bold text-3xl py-4">{isSignInForm ? "Sign In" : "Sign Up"}</h1>
 
             {!isSignInForm && (
