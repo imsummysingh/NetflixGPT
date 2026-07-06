@@ -1,7 +1,7 @@
 # Netflix GPT
 
--create-react-app
--configured TailwindCss in our project
+- create-react-app
+- configured TailwindCss in our project
 - Header
 - Routing of app
 - Login Form
@@ -15,7 +15,24 @@
 - created redux store with userSlice
 - Implemented sign out
 - update profile
+- Bug fix: Signup user displaye name & Profile picture update -> by using dispatch action when user is created
+- Bug fix: If user is not logged in Redirect/browse to login page and vice-versa 
+- unsubscribed to the onAuthStateChanged callback
+- Added hardcoded url values to constant files
 - Fetch movies from TMDB Movies
+- Registered TMDB API & Create an app and get access token and then go to Dcoumentation of it
+- Get data from TMDB now playing movie list API
+- Put data of these in redux store
+- Created custom hook for now playing movie
+- Created movieSlice
+- Update store with movies data
+- Planned MainContainer & SecondaryContainer
+- Fetch data for trailer video
+- update store with trailer video data
+- Embedded the youtube video in main container - made it autoplay & mute
+- Tailwind classes for main container
+
+
 
 
 
