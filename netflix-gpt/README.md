@@ -31,7 +31,7 @@
 - update store with trailer video data
 - Embedded the youtube video in main container - made it autoplay & mute
 - Tailwind classes for main container
-
+- Build secondary container
 
 
 
