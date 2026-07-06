@@ -32,6 +32,12 @@
 - Embedded the youtube video in main container - made it autoplay & mute
 - Tailwind classes for main container
 - Build secondary container
+- Build Movie List
+- Build movie card
+- TMDB Image CDN url
+- Made the browser page smooth with tailwinf css
+- usePopularMovie, useUpComingMovies, useTopRatedMovie custom hooks for different lists
+
 
 
 
