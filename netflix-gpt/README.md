@@ -37,6 +37,11 @@
 - TMDB Image CDN url
 - Made the browser page smooth with tailwinf css
 - usePopularMovie, useUpComingMovies, useTopRatedMovie custom hooks for different lists
+- GPT Search Page
+- GPT Search Bar
+- Added multi language features in the app
+- Integrate GPT APIs (get openAI Key)
+
 
 
 
