@@ -51,7 +51,11 @@
 - added keys in .env file
 
 
-
+Some Urls:
+- https://platform.openai.com/home ->NetflixGPT Project
+- https://www.npmjs.com/package/openai
+- https://developer.themoviedb.org/reference/getting-started
+- https://console.firebase.google.com/u/0/project/netflixgpt-28055/overview
 
 
 
